@@ -1,0 +1,4 @@
+# Deploy only the website, not the business docs.
+/*
+!/site
+!/vercel.json

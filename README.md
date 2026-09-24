@@ -37,7 +37,8 @@ The name comes from the joke about calling a janitor "an expert in the custodial
 `site/index.html` is self-contained. The only external request is Google Fonts, and system fonts take over if it fails. Any static host works:
 
 - **GitHub Pages:** Settings → Pages → deploy from branch, folder `/site` (or move the file to `/docs`)
-- **Vercel / Netlify:** point the project at the `site` directory with no build command
+- **Vercel:** works with the project's Root Directory left blank. `vercel.json` serves `site/index.html` at `/`, and `.vercelignore` keeps the business docs out of the deployment.
+- **Netlify:** point the project at the `site` directory with no build command
 
 Before going live, replace the two `TODO` placeholders in the contact section with the real email address and LinkedIn page URL.
 
