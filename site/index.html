@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custodial Arts</title>
+<meta name="description" content="Custodial Arts cleans up operations, tools, and technology for digital businesses. Measured results, honest AI advice, no overselling.">
+<meta property="og:title" content="Custodial Arts">
+<meta property="og:description" content="We do the dirty work. Operations, tools, and honest AI for digital businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Brand tokens: gallery ivory + ink, with one caution-sign yellow accent. */
+  :root {
+    --paper: #f6f2ea;
+    --paper-2: #ede7db;
+    --ink: #1b1a17;
+    --ink-2: #4a4740;
+    --rule: #d6cfc1;
+    --caution: #f2c230;
+    --caution-ink: #1b1a17;
+    --steel: #5b6770;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --max: 1080px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #151412;
+      --paper-2: #1f1d1a;
+      --ink: #ede7db;
+      --ink-2: #b3ac9f;
+      --rule: #34312c;
+      --steel: #95a1aa;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #151412;
+    --paper-2: #1f1d1a;
+    --ink: #ede7db;
+    --ink-2: #b3ac9f;
+    --rule: #34312c;
+    --steel: #95a1aa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration-color: var(--caution); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 3px; }
+  a:focus-visible { outline: 2px solid var(--caution); outline-offset: 3px; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  .label {
+    font: 500 12px/1.4 var(--mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  /* Header */
+  header.top { border-bottom: 1px solid var(--rule); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+  .mark { font: 600 22px/1 var(--serif); letter-spacing: 0.01em; text-decoration: none; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+  nav a { font: 500 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--ink-2); }
+  nav a:hover { color: var(--ink); }
+  @media (max-width: 640px) { nav { display: none; } }
+
+  /* Hero */
+  .hero { padding: 72px 0 64px; }
+  @media (min-width: 720px) { .hero { padding: 112px 0 96px; } }
+  .hero h1 {
+    font: 500 clamp(52px, 11vw, 124px)/0.95 var(--serif);
+    letter-spacing: -0.02em;
+    margin: 20px 0 8px;
+  }
+  .hero .sub {
+    font: italic 500 clamp(26px, 4.5vw, 40px)/1.2 var(--serif);
+    margin: 0 0 32px;
+    color: var(--ink-2);
+  }
+  .hero p.lede { max-width: 620px; font-size: 19px; margin: 0 0 36px; }
+  .caution {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--caution); color: var(--caution-ink);
+    font: 600 12px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 10px 14px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    padding-right: 24px;
+  }
+  .caution svg { flex: none; }
+
+  section { padding: 72px 0; border-top: 1px solid var(--rule); }
+  @media (min-width: 720px) { section { padding: 96px 0; } }
+  h2 {
+    font: 500 clamp(36px, 6vw, 56px)/1.05 var(--serif);
+    letter-spacing: -0.01em;
+    margin: 12px 0 16px;
+  }
+  .intro { max-width: 640px; color: var(--ink-2); margin: 0 0 48px; }
+
+  /* The Permanent Collection: museum placards */
+  .placards { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .placards { grid-template-columns: 1fr 1fr; gap: 24px; } }
+  .placard {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 28px 28px 24px;
+    position: relative;
+  }
+  .placard h3 { font: italic 500 26px/1.2 var(--serif); margin: 0 0 4px; }
+  .placard .meta { font: 400 13px/1.5 var(--mono); color: var(--steel); margin: 0 0 16px; }
+  .placard p { margin: 0; color: var(--ink-2); font-size: 16px; }
+  .placard .fix { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--rule); font-size: 15px; color: var(--ink); }
+  .placard .fix b { font: 500 11px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); display: block; margin-bottom: 6px; }
+
+  /* Services */
+  .services { display: grid; gap: 0; }
+  .service {
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+    padding: 32px 0; border-top: 1px solid var(--rule);
+  }
+  .service:last-child { border-bottom: 1px solid var(--rule); }
+  @media (min-width: 820px) {
+    .service { grid-template-columns: 64px 1fr 1.3fr; gap: 32px; align-items: start; }
+  }
+  .service .num { font: 500 13px/1.9 var(--mono); color: var(--steel); }
+  .service h3 { font: 500 32px/1.1 var(--serif); margin: 0; }
+  .service .tag { font: italic 500 19px/1.3 var(--serif); color: var(--ink-2); margin: 6px 0 0; }
+  .service p { margin: 0 0 12px; }
+  .service .measure { font-size: 15px; color: var(--ink-2); margin: 0; }
+  .service .measure b { font: 500 11px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); margin-right: 8px; }
+
+  /* House rules */
+  .rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: rule; }
+  @media (min-width: 820px) { .rules { grid-template-columns: 1fr 1fr; column-gap: 48px; } }
+  .rules li { counter-increment: rule; padding: 22px 0 22px 52px; border-top: 1px solid var(--rule); position: relative; }
+  .rules li::before {
+    content: counter(rule, upper-roman);
+    position: absolute; left: 0; top: 24px;
+    font: 500 13px/1 var(--mono); color: var(--steel); letter-spacing: 0.06em;
+  }
+  .rules strong { display: block; font: 600 22px/1.25 var(--serif); margin-bottom: 4px; }
+  .rules span { color: var(--ink-2); font-size: 16px; }
+
+  /* AI Reality Check */
+  .ai { display: grid; gap: 40px; }
+  @media (min-width: 860px) { .ai { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; } }
+  .verdicts { display: grid; gap: 12px; }
+  .verdict { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 18px 20px; border: 1px solid var(--rule); background: var(--paper-2); }
+  @media (max-width: 480px) { .verdict { grid-template-columns: 1fr; gap: 6px; } }
+  .verdict .v { font: 600 12px/1.6 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; }
+  .verdict .v::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; vertical-align: 1px; border: 1.5px solid var(--ink); }
+  .verdict.ready .v::before { background: var(--ink); }
+  .verdict.notyet .v::before { background: var(--caution); border-color: var(--caution); }
+  .verdict p { margin: 0; font-size: 15px; color: var(--ink-2); }
+  blockquote.pull {
+    margin: 32px 0 0; padding: 0 0 0 20px; border-left: 3px solid var(--caution);
+    font: italic 500 26px/1.3 var(--serif);
+  }
+
+  /* Contact */
+  .contact h2 { max-width: 760px; }
+  .contact p { max-width: 620px; color: var(--ink-2); }
+  .cta {
+    display: inline-block; margin-top: 16px;
+    font: 500 14px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 16px 22px; background: var(--ink); color: var(--paper); text-decoration: none;
+  }
+  .cta:hover { background: var(--caution); color: var(--caution-ink); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+  .cta-row a.plain { font: 500 14px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 16px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  footer em { font-family: var(--serif); font-size: 17px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#">Custodial Arts</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#collection">The Collection</a></li>
+        <li><a href="#work">The Work</a></li>
+        <li><a href="#ai">AI</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <span class="label">Operations · Tools &amp; Technology · Honest AI</span>
+      <h1>Custodial Arts</h1>
+      <p class="sub">We do the dirty work.</p>
+      <p class="lede">Every business runs on work nobody puts in a keynote: the handoffs, the reports rebuilt by hand every Monday, the tool nobody remembers buying. We clean up the operations, tools, and technology behind digital businesses. We measure the results, and we don't dress them up.</p>
+      <span class="caution">
+        <svg width="16" height="14" viewBox="0 0 16 14" aria-hidden="true"><path d="M8 1 L15 13 H1 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 5.5 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="11" r="0.9" fill="currentColor"/></svg>
+        Caution: honest assessments ahead
+      </span>
+    </div>
+  </div>
+
+  <section id="collection">
+    <div class="wrap">
+      <span class="label">Gallery I</span>
+      <h2>The Permanent Collection</h2>
+      <p class="intro">Messes found in nearly every building we walk through. None of them are anyone's fault. They're what happens when smart people solve real problems under pressure. Recognize any?</p>
+
+      <div class="placards">
+        <article class="placard">
+          <h3>Untitled (The Spreadsheet Nobody Owns)</h3>
+          <p class="meta">2019–present · Excel, email attachments, one person's memory</p>
+          <p>Began as a quick fix. Now has 43 tabs, three versions labeled FINAL, and powers the board report. Its creator left in 2022. Nobody dares sort column F.</p>
+          <p class="fix"><b>The fix</b>Find who actually uses it, give it an owner, retire the tabs nobody reads. <em>Then</em> decide whether it needs to become something else.</p>
+        </article>
+        <article class="placard">
+          <h3>Seventeen Tools, One Workflow</h3>
+          <p class="meta">2021 · SaaS subscriptions, abandoned integrations, annual auto-renewals</p>
+          <p>Each tool was bought to solve a real problem. Together they create four new ones. Data is copied by hand between three of them, every day, by someone who should be doing something else.</p>
+          <p class="fix"><b>The fix</b>Inventory what you pay for and what gets used. Consolidate, cancel, or connect, with the switching cost of each written down first.</p>
+        </article>
+        <article class="placard">
+          <h3>Study in Handoffs</h3>
+          <p class="meta">Ongoing · Chat threads, shared inboxes, hope</p>
+          <p>A customer is sold on Tuesday and discovered by operations on Friday. Everyone did their job. The work fell through the gap between the jobs.</p>
+          <p class="fix"><b>The fix</b>Map the handoff as it really happens, give each step one owner, and measure the time between steps, not just the steps themselves.</p>
+        </article>
+        <article class="placard">
+          <h3>The Pilot That Never Landed</h3>
+          <p class="meta">2024 · Large language model, slide deck, press release</p>
+          <p>Stunning in the demo. Quietly shelved in production, where the data was messier, the edge cases were many, and nobody owned what happened when it was wrong.</p>
+          <p class="fix"><b>The fix</b>Test on your data, not the demo set. Clean what it depends on first. Decide who owns the errors before launch, not after.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <span class="label">Gallery II</span>
+      <h2>The Work</h2>
+      <p class="intro">Five services, each with a clear scope and a clear way to tell whether it worked. We price by the job wherever we can, so you know the cost before we start.</p>
+
+      <div class="services">
+        <div class="service">
+          <span class="num">01</span>
+          <div>
+            <h3>The Walkthrough</h3>
+            <p class="tag">We walk every room before we touch anything.</p>
+          </div>
+          <div>
+            <p>A diagnostic of your operations, tools, and handoffs. We start by talking to the people closest to the work. You get a Condition Report covering what's broken, roughly what it costs, what to fix first, and what to leave alone.</p>
+            <p class="measure"><b>You keep</b>The report and the baseline, whether or not you hire us again. It'll say when you don't need us.</p>
+          </div>
+        </div>
+        <div class="service">
+          <span class="num">02</span>
+          <div>
+            <h3>The Deep Clean</h3>
+            <p class="tag">Untangle the specific mess.</p>
+          </div>
+          <div>
+            <p>An operational cleanup scoped from the Walkthrough. We redesign the process with the people who run it, fix or remove the tools involved, document the new way, and train the owner.</p>
+            <p class="measure"><b>Measured by</b>Two to four metrics agreed in writing before we start, reported against the baseline, including any that didn't move.</p>
+          </div>
+        </div>
+        <div class="service">
+          <span class="num">03</span>
+          <div>
+            <h3>The Supply Closet</h3>
+            <p class="tag">What you pay for, what you use, what's held together with tape.</p>
+          </div>
+          <div>
+            <p>A tools and technology inventory. We look at licenses, usage, owners, overlaps, and single points of failure, then recommend what to keep, consolidate, replace, or cancel, with the switching cost of each.</p>
+            <p class="measure"><b>Measured by</b>Annual spend, tool count, undocumented integrations, and time to onboard a new hire.</p>
+          </div>
+        </div>
+        <div class="service">
+          <span class="num">04</span>
+          <div>
+            <h3>The AI Reality Check</h3>
+            <p class="tag">An honest inspection of what's ready and what's a demo.</p>
+          </div>
+          <div>
+            <p>We test a specific AI use case against your data, your edge cases, and your volume, and check whether your process and data are ready to support it.</p>
+            <p class="measure"><b>Measured by</b>Accuracy on your real cases, review time, cost per transaction, and error rate.</p>
+          </div>
+        </div>
+        <div class="service">
+          <span class="num">05</span>
+          <div>
+            <h3>The Night Shift</h3>
+            <p class="tag">Keeping it clean.</p>
+          </div>
+          <div>
+            <p>A light monthly retainer. We review the metrics we set up together, fix small things before they become big ones, and give you a second opinion before you buy the next tool.</p>
+            <p class="measure"><b>Terms</b>Capped hours. Cancel any month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="wrap">
+      <span class="label">Gallery III</span>
+      <h2>House Rules</h2>
+      <p class="intro">How we work, and what you can hold us to.</p>
+      <ol class="rules">
+        <li><strong>Measure before we mop.</strong><span>Every engagement starts with a baseline. Every result is reported against it.</span></li>
+        <li><strong>No mess is beneath us.</strong><span>The 43-tab spreadsheet. The integration nobody understands. Bring it.</span></li>
+        <li><strong>Say what it is.</strong><span>A 12% improvement is a 12% improvement. We don't call it transformational.</span></li>
+        <li><strong>Your building, your rules.</strong><span>We work the way you work. No trademarked methodology, no new vocabulary.</span></li>
+        <li><strong>The frontline knows.</strong><span>We ask the people closest to the work first. They've usually known for a year.</span></li>
+        <li><strong>Leave it cleaner, and leave.</strong><span>We document, hand over the keys, and train the owners. If you still need us for the same thing next year, we did it wrong.</span></li>
+        <li><strong>Our advice isn't for sale.</strong><span>We don't resell software or take vendor referral fees.</span></li>
+        <li><strong>We'll tell you when you don't need us.</strong><span>Sometimes the fix is already in the building.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="ai">
+        <div>
+          <span class="label">Gallery IV</span>
+          <h2>On AI</h2>
+          <p>We're not anti-AI. We're anti-pretending.</p>
+          <p>Some AI tools are genuinely useful today, and we'll help you use them well. Many others are a demo, a press release, and a pilot that never reaches production. They fail because the data, the process, and the ownership underneath weren't ready to hold them up.</p>
+          <p>Nobody gets excited about cleaning the floor before the new machine arrives. It's still the part that decides whether the machine works.</p>
+          <blockquote class="pull">It's a great new mop. Someone still has to know where the floor is.</blockquote>
+        </div>
+        <div>
+          <p class="label" style="margin: 8px 0 16px;">Every use case gets one of three verdicts</p>
+          <div class="verdicts">
+            <div class="verdict ready">
+              <span class="v">Ready</span>
+              <p>It works on your data today. Here's the rollout plan and what to watch.</p>
+            </div>
+            <div class="verdict notyet">
+              <span class="v">Not yet</span>
+              <p>Here's what has to be true first (usually cleanup work) and roughly what it costs.</p>
+            </div>
+            <div class="verdict">
+              <span class="v">Not this</span>
+              <p>It can't reliably do the job. Here's what would work instead. Sometimes that's a better spreadsheet.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <span class="label">Service Entrance</span>
+      <h2>Most of our work comes from someone who's seen us do it.</h2>
+      <p>If someone sent you here, they probably told you what to expect. If you're standing in a mess and not sure where to start, write to us. Tell us what's going on in plain words. We'll tell you honestly whether we can help, even if the answer is no.</p>
+      <div class="cta-row">
+        <!-- TODO: replace with the real address once the domain is registered -->
+        <a class="cta" href="mailto:hello@custodialarts.com">hello@custodialarts.com</a>
+        <!-- TODO: replace with the real LinkedIn company page URL -->
+        <a class="plain" href="https://www.linkedin.com/">LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><em>Custodial Arts</em> · Est. 2026</p>
+    <p>Leave it cleaner than you found it.</p>
+  </div>
+</footer>
+
+</body>
+</html>
